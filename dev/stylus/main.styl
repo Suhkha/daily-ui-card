@@ -1,0 +1,100 @@
+$border__color      = #E3E7EC
+$card__color        = #FFFFFF
+$description__color = #A7AFBC
+$link__color        = #9FC957
+$main__color        = #464B56
+$shadow             = #3E414C
+$gplus              = #D56658
+$facebook           = #3F5997
+$twitter            = #4F99FD
+
+
+body
+  background-color $main__color
+  min-height 100%
+  text-transform uppercase
+  
+.card
+  background-color $card__color
+  border-radius 10px
+  box-shadow 5px 5px 30px $shadow
+  margin 50px auto
+  padding 0
+  position relative
+
+.card__left
+  padding 100px   
+  
+.card__info > span 
+  color $description__color
+  font-weight bold
+  
+.card__title
+  color $main__color
+  display block
+  line-height 50px
+  
+.card__description
+  color $description__color
+  font-size 12px
+  line-height 35px
+  
+.card__social_media
+  margin-top 40px
+
+.card__login
+  border solid 1px $border__color
+  border-radius 5px
+  cursor pointer
+  display inline-block
+  margin-bottom 25px
+  padding 25px
+  text-align center
+  width 100%
+  text-decoration none
+  color $main__color
+  font-size 12px
+  font-weight bold
+  &:hover
+    border solid 1px $card__color
+    text-decoration none
+    box-shadow 5px 5px 20px $border__color
+    color $main__color
+  &:before
+    font normal normal normal 25px FontAwesome
+    text-decoration none
+    vertical-align middle
+  &--googleplus:before
+    content '\f0d5'
+    color $gplus
+  &--facebook:before
+    content '\f09a'
+    color $facebook
+  &--twitter:before 
+    content '\f099'
+    color $twitter
+
+.card__footer
+  margin-top 50px
+  text-align center
+  
+  .card__recommendation
+    color $main__color
+    font-size 11px
+  
+  .card__link_login_email
+    color $link__color
+    display block
+    text-decoration none
+    font-weight bold
+    font-size 11px
+    
+.card__right
+    background-image url('../images/card__city_members.jpg')
+    background-size cover
+    background-repeat no-repeat
+    background-position bottom center
+    
+   
+  
+@import "_media.styl"
