@@ -4,26 +4,92 @@ $description__color = #A7AFBC
 $link__color        = #9FC957
 $main__color        = #464B56
 $shadow             = #3E414C
-$gplus              = #D56658
-$facebook           = #3F5997
-$twitter            = #4F99FD
+$error              = rgb(206, 10, 26)
+$blue               = #3F5997
+$yellow             = rgb(255, 236, 3)
+$green__dark        = #7cab2c
+$yellow__dark       = #d6c603
+
+@keyframes change__color {
+    0%     {background-color:#7887d2;}
+    25%    {background-color:#8678d2;}
+    50%    {background-color:#d278aa;}
+    75%    {background-color:#8678d2;}
+    100%   {background-color:#7887d2;}
+}
 
 
 body
   background-color $main__color
   min-height 100%
   text-transform uppercase
-  
+
+.logout, .main__link
+  float right
+  background $link__color
+  padding 16px
+  a, a:hover
+    color white
+    font-weight 700 
+    text-decoration none
+    padding 16px
+  &:hover
+    background $green__dark
+    
+.gallery
+  img 
+    margin-top 15px
+    width: 100%
+  &__image--activation
+    background $main__color
+    span 
+      color white
+      margin 0 5px
+    input[type="checkbox"]
+      float right
+      margin-right 5px
+  &__image--author
+    animation-name change__color
+    animation-duration 5s
+    animation-timing-function ease-in-out
+    animation-iteration-count infinite;   
+    animation-play-state running
+    background $link__color
+    padding 10px 0
+    span 
+      color white 
+      margin 0 5px 
+
+.share__on--pinterest
+  color white  !important
+  float right  !important
+  margin-right 15px !important
+  font-size 14px  !important
+  cursor pointer !important
+  border solid 1px 
+  padding 0 5px
+       
+.custom-alert
+  background $error
+  color white
+  font-weight 700
+  padding 10px 40px
+  border none
+  border-radius 0
+   
 .card
   background-color $card__color
-  border-radius 10px
   box-shadow 5px 5px 30px $shadow
   margin 50px auto
   padding 0
   position relative
+  border none !important
+  min-height 450px
 
 .card__left
-  padding 100px   
+  padding 50px 
+  &--full
+    width 100% !important  
   
 .card__info > span 
   color $description__color
@@ -38,44 +104,43 @@ body
   color $description__color
   font-size 12px
   line-height 35px
+
+.form
+  &__input
+    margin-top 15px
+    border-radius 0
+    &--file 
+      opacity 0
+      overflow hidden
+      position absolute
+      z-index -1
+      margin-top 270px
+    + label
+      font-weight 700
+      color white !important 
+      background $yellow !important
+      display inline-block
+      cursor pointer
+      text-align center
+      padding 20px
+      margin 200px auto 10px auto 
+      width: 100%
+      font-size 16px
+      &:hover 
+        background $yellow__dark !important
+  p
+    color $error
+    font-size 11px
+    font-weight 700
+  &__button
+    padding 10px 25px
+    background $blue
+    color white
+    border none
+    float right
   
-.card__social_media
-  margin-top 40px
-
-.card__login
-  border solid 1px $border__color
-  border-radius 5px
-  cursor pointer
-  display inline-block
-  margin-bottom 25px
-  padding 25px
-  text-align center
-  width 100%
-  text-decoration none
-  color $main__color
-  font-size 12px
-  font-weight bold
-  &:hover
-    border solid 1px $card__color
-    text-decoration none
-    box-shadow 5px 5px 20px $border__color
-    color $main__color
-  &:before
-    font normal normal normal 25px FontAwesome
-    text-decoration none
-    vertical-align middle
-  &--googleplus:before
-    content '\f0d5'
-    color $gplus
-  &--facebook:before
-    content '\f09a'
-    color $facebook
-  &--twitter:before 
-    content '\f099'
-    color $twitter
-
 .card__footer
-  margin-top 50px
+  margin-top 75px
   text-align center
   
   .card__recommendation
@@ -90,11 +155,15 @@ body
     font-size 11px
     
 .card__right
-    background-image url('../images/card__city_members.jpg')
     background-size cover
     background-repeat no-repeat
-    background-position bottom center
-    
-   
-  
+    background-position center
+    &--register
+      background-image url('http://i.giphy.com/l46Chx5BwlBMFQq7S.gif')
+    &--login
+      background-image url('http://i.giphy.com/l3vRafLglqVaZ7tZK.gif')
+    &--upload
+      padding 15px
+      border-left dashed 2px $yellow
+      
 @import "_media.styl"
